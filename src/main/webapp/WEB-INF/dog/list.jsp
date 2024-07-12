@@ -36,6 +36,7 @@
         <td><%= dogs.get(i).getName() %></td>
         <td><%= dogs.get(i).getBreed() %></td>
         <td><%= dogs.get(i).getDateOfBirth() %></td>
+        <%--ajouter lien pour details dans td, pour ne pas que url recommence il fauta jouter pagecontext voir add.jsp exercice4, parametre optionnel il faut regarder ajouté ?id=numérorecuperergetId--%>
     </tr>
     <%  }%>
 
@@ -47,7 +48,8 @@
     <% } %>
 
     <button type="button" class="btn btn-outline-success"  >
-        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="form.jsp">Add a dog</a></button>
+        <%--voir lien --%>
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="${pageContext.request.contextPath}/dog/form">Add a dog</a></button>
 
 </main>
 </body>

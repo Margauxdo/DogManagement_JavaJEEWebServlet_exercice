@@ -13,5 +13,31 @@
 </head>
 <body>
 
+<h1>- Add a dog -</h1>
+
+<form action="/dog/form" method="post">
+
+        <div class="mb-3">
+            <label for="name" class="name"> Dog Name</label>
+            <input type="text" id="name" class="name" placeholder="Disabled input">
+        </div>
+
+
+    <div class="mb-3">
+        <label for="breed" class="breed">Dog breed</label>
+        <input type="text" id="breed" class="breed" placeholder="Disabled input">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="dateOfBirth" class="dateOfBirth">Disabled input</label>
+        <input type="date" id="dateOfBirth" class="dateofbirth" placeholder="Disabled input">
+    </div>
+
+
+        <button type="submit" class="btn btn-primary">Add dog</button>
+
+</form>
+
 </body>
 </html>
