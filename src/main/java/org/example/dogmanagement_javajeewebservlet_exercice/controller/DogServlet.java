@@ -31,31 +31,38 @@ public class DogServlet extends HttpServlet {
         //req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
 
         String pathInfo = req.getPathInfo().substring(1);
+        req.setAttribute("dogs", dogs);
         switch (pathInfo) {
-            case "/list":
-                req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
+
+            case "list":
+                showAll(req,resp);
                 break;
-            case "/form":
-                req.getRequestDispatcher("/WEB-INF/dog/form.jsp").forward(req, resp);
+            case "form":
+                showForm(req,resp);
                 break;
 
-            case "/description":
-                req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
+            case "description":
+                showDetails(req,resp);
                 break;
 
 
         }
 
-        String searchname = " ";
 
-        if (!pathInfo.isEmpty()) {
-            searchname = pathInfo;
 
-            req.setAttribute("searchname", searchname);
-            req.setAttribute("pathInfo", pathInfo);
-            req.setAttribute("dogs", dogs);
+        }
+
+        protected void showAll(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
             req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
 
         }
+        protected void showForm(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/dog/form.jsp").forward(req, resp);
+        }
+
+        protected void showDetails(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+        req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
+        }
+
     }
-}
+
