@@ -53,6 +53,7 @@ public class DogServlet extends HttpServlet {
         }
 
         protected void showAll(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+            req.setAttribute("dogs", dogs);
             req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
 
         }
