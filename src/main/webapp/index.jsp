@@ -8,6 +8,6 @@
 <h1><%= "Dog Management!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="dog/list">Nos amis les chiens</a>
 </body>
 </html>
