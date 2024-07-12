@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet (name = "dogServlet", value = "/dog/*")
+@WebServlet(name = "dogServlet", value = "/dog/*")
 public class DogServlet extends HttpServlet {
 
     private List<Dog> dogs;
@@ -30,18 +30,32 @@ public class DogServlet extends HttpServlet {
 
         //req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
 
-        String pathInfo = (req.getPathInfo() != null && !req.getPathInfo().isEmpty()) ? req.getPathInfo() : "";
+        String pathInfo = req.getPathInfo().substring(1);
+        switch (pathInfo) {
+            case "/list":
+                req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
+                break;
+            case "/form":
+                req.getRequestDispatcher("/WEB-INF/dog/form.jsp").forward(req, resp);
+                break;
 
-       String searchname = " " ;
+            case "/description":
+                req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
+                break;
 
-       if (!pathInfo.isEmpty()){
-           searchname = pathInfo;
 
-           req.setAttribute("searchname", searchname);
-           req.setAttribute("pathInfo",pathInfo);
-           req.setAttribute("dogs", dogs);
-           req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req,resp);
+        }
 
-       }
+        String searchname = " ";
+
+        if (!pathInfo.isEmpty()) {
+            searchname = pathInfo;
+
+            req.setAttribute("searchname", searchname);
+            req.setAttribute("pathInfo", pathInfo);
+            req.setAttribute("dogs", dogs);
+            req.getRequestDispatcher("/WEB-INF/dog/list.jsp").forward(req, resp);
+
+        }
     }
 }
