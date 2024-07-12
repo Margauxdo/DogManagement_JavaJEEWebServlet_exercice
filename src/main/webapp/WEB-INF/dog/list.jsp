@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrateur
-  Date: 12/07/2024
-  Time: 14:11
-  To change this template use File | Settings | File Templates.
---%>
+
 <jsp:useBean id="dogs" type="java.util.ArrayList<org.example.dogmanagement_javajeewebservlet_exercice.model.Dog>" scope="request" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -13,9 +7,11 @@
     <title>-Add a Dog-</title>
 </head>
 <body>
-<h1>-Add a Dog-</h1>
 
-<main class="container">
+
+<main class="container p-3 mb-2 bg-dark text-white rounded">
+
+    <h1 class=" border-bottom  border-secondary-subtle border-opacity-25">-Add a Dog-</h1>
     <%  if (!dogs.isEmpty()) { %>
     <table class="table table-dark text-center align-middle">
         <thead>
@@ -44,12 +40,12 @@
 
     </table>
     <% } else { %>
-    <p> There is not dog the database yet !</p>
+    <p class=" border-bottom  border-secondary-subtle border-opacity-25" > There is not dog the database yet !</p>
     <% } %>
 
-    <button type="button" class="btn btn-outline-success"  >
+    <button type="button" class="btn btn-outline-success "  >
         <%--voir lien --%>
-        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="${pageContext.request.contextPath}/dog/form">Add a dog</a></button>
+        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light bg-dark" href="${pageContext.request.contextPath}/dog/form">Add a dog</a></button>
 
 </main>
 </body>

@@ -54,9 +54,9 @@ public class DogRepository {
         try{
             session = sessionFactory.openSession();
             session.beginTransaction();
-            Query<Dog>query = session.createQuery("from Dog", Dog.class);
+            //Query<Dog>query = session.createQuery("from Dog", Dog.class);
             session.getTransaction().commit();
-
+            //return dogs;
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }finally {
@@ -77,25 +77,22 @@ public class DogRepository {
             System.out.println(e.getMessage());
         }finally {
             session.close();
+
         }
-        return null;
+ return null;
     }
-
-    public Dog deleteDog(int id) {
+    public void deleteDog(int id) {
         try{
-
             session = sessionFactory.openSession();
             session.beginTransaction();
             session.delete(findDogById(id));
             session.getTransaction().commit();
-
 
         }catch (Exception e){
             System.out.println(e.getMessage());
         }finally {
             session.close();
         }
-        return null;
     }
 }
 
