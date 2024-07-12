@@ -21,7 +21,7 @@ public class DogServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         dogs = new ArrayList<>();
-        dogs.add(new Dog(1, "Milou","caniche", LocalDate.parse("2020-05-03")));
+        //dogs.add(new Dog(1, "Milou","caniche", LocalDate.parse("2020-05-03")));
     }
 
 
