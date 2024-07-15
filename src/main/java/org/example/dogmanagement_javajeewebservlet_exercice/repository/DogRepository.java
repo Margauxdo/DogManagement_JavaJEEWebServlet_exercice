@@ -2,6 +2,7 @@ package org.example.dogmanagement_javajeewebservlet_exercice.repository;
 
 
 import org.example.dogmanagement_javajeewebservlet_exercice.model.Dog;
+import org.example.dogmanagement_javajeewebservlet_exercice.util.SessionFactorySingleton;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -15,8 +16,7 @@ public class DogRepository {
     private Session session;
 
     public DogRepository() {
-        /*TODO verifier sessionfactorySingleton*/
-        Session SessionFactorySingleton = null;
+
         sessionFactory = SessionFactorySingleton.getSessionFactory();
     }
 
