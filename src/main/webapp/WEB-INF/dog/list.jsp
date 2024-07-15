@@ -27,11 +27,12 @@
 
     <% for (int i = 0; i < dogs.size();i++){ %>
     <tr>
-        <td><%= i+1 %></td>
+
         <td><%= dogs.get(i).getId() %></td>
         <td><%= dogs.get(i).getName() %></td>
         <td><%= dogs.get(i).getBreed() %></td>
         <td><%= dogs.get(i).getDateOfBirth() %></td>
+        <td><a href="${pageContext.request.contextPath}/dog/description?id=<%=dogs.get(i).getId()%>" ><i class="bi bi-eye"></i>Detail</a></td>
         <%--ajouter lien pour details dans td, pour ne pas que url recommence il fauta jouter pagecontext voir add.jsp exercice4, parametre optionnel il faut regarder ajouté ?id=numérorecuperergetId--%>
     </tr>
     <%  }%>

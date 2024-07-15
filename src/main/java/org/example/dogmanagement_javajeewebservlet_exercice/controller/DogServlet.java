@@ -62,8 +62,30 @@ public class DogServlet extends HttpServlet {
         }
 
         protected void showDetails(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        req.setAttribute("dog", dogs.get(id));
         req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
         }
+
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            System.out.println("form received");
+        String name = req.getParameter("name");
+        String breed = req.getParameter("breed");
+        LocalDate dateOfBirth = LocalDate.parse(req.getParameter("dateOfBirth"));
+            Dog dog = Dog.builder()
+                    .name(name)
+                    .breed(breed)
+                    .dateOfBirth(dateOfBirth)
+                    .build();
+            dogs.add(dog);
+//            req.setAttribute("dogs", dogs);
+            showAll(req,resp);
+
+
+
+
+        }
+
 
     }
 
