@@ -21,7 +21,8 @@ public class DogServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         dogs = new ArrayList<>();
-        //dogs.add(new Dog(1, "Milou","caniche", LocalDate.parse("2020-05-03")));
+        //retirer quand hibernate est lié pcq je lie hibernate et servler ainsi id sera pris en compte
+        dogs.add(new Dog(1, "Milou","caniche", LocalDate.parse("2020-05-03")));
     }
 
 
@@ -63,7 +64,8 @@ public class DogServlet extends HttpServlet {
 
         protected void showDetails(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
-        req.setAttribute("dog", dogs.get(id));
+        req.setAttribute("dog", dogs.get(id-1));
+        //retirer lier hibernate
         req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
         }
 
