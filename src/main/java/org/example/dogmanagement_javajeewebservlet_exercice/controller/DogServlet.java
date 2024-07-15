@@ -61,12 +61,14 @@ public class DogServlet extends HttpServlet {
         protected void showForm(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/dog/form.jsp").forward(req, resp);
         }
+        /*TODO cree une methode add pour passer par hibernate, quand j'ai crée mon chien je me redirige vers liste*/
 
         protected void showDetails(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         req.setAttribute("dog", dogs.get(id-1));
         //retirer lier hibernate
         req.getRequestDispatcher("/WEB-INF/dog/description.jsp").forward(req, resp);
+        /*TODO je veut montret les details du chien en recuperant ID, je transmet le chien et je suis en mode views*/
         }
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

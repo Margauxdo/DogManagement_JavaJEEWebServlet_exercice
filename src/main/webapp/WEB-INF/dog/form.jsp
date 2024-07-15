@@ -18,6 +18,7 @@
 
 <form action="${pageContext.request.contextPath}/dog/form" method="post"><%--revoircontext--%>
 
+    <%-- mettre id dans le formulaure mais caché required, requis et readonly on ne pourra rien taper dedans --%>
         <div class="mb-3">
             <label for="name" class="name"> Dog Name</label>
             <input type="text" id="name" class="name" placeholder="Disabled input" name="name">

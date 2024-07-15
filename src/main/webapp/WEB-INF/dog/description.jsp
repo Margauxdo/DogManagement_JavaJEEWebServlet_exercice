@@ -37,6 +37,10 @@
         </div>
 
 
+        <%-- je souhaite retpurne à la page acceuil, test conditionelle,
+        faire un if else qui renvoie vers la liste page acceuil soit je retourne vers ajout
+        un chien si je n'ai aucun chien
+        sinon je renvoie vers la liste de la pge acceuil  --%>
         <button type="submit" class="btn btn-outline-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-light bg-dark" >return</button>
 
     </form>
@@ -45,3 +49,4 @@
 
 </body>
 </html>
+<%--  ajoyter la methode modifier et supprimer--%>
